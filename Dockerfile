@@ -13,8 +13,10 @@ RUN pip install poetry; \
 FROM python:3.10-slim as runner
 WORKDIR /app
 COPY --from=builder /app/.venv /app/.venv
-COPY ./spacebot /app
+COPY . /app
 
 ENV PATH="/app/.venv/bin:$PATH"
 ENV PYTHONPATH="/app;$/app/.venv/lib/python3.10/site-packages"
+ENV TOKEN=""
+ENV GUILD_IDS=""
 ENTRYPOINT [ "python", "-m", "spacebot" ]
