@@ -6,7 +6,7 @@ COPY poetry.lock pyproject.toml ./
 RUN pip install poetry; \
     python -m venv .venv; \
     . .venv/bin/activate; \
-    poetry install --no-dev; \
+    poetry install --without dev; \
     deactivate;
 
 
